@@ -1,0 +1,28 @@
+---
+title: Pro HTML5 Games — Game #1
+---
+
+#gamecontainer
+
+  %canvas#gamecanvas.gamelayer
+
+  #scorescreen.gamelayer
+    %a.button#togglemusic Toggle music
+    %a.button#prev Previous
+    %span#score
+      Score: 0
+
+  #gamestartscreen.gamelayer
+    %a.button#play Play
+    %a.button#settings Settings
+
+  #levelselectscreen.gamelayer
+
+  #loadingscreen.gamelayer
+    #loadingmessage Loading…
+
+  #endingscreen.gamelayer
+    %h1#endingmessage Success!
+    %a.button#showlevelscreen Return to level
+    %a.button#replaycurrentlevel Replay
+    %a.button#playnextlevel Next level

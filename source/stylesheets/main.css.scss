@@ -1,0 +1,131 @@
+@charset "utf-8";
+@import 'compass';
+@import 'reset';
+
+//
+// Variables
+//
+
+$font-size: 16;
+$line-height: 24;
+
+// Typography
+
+@mixin text-font { font-family: sans-serif; }
+@mixin ui-font  	{ font-family: sans-serif; }
+@mixin code-font { font-family: Menlo, Consolas, monospace; }
+
+// Colours
+$primary-hue:   270;
+$secondary-hue: 270 - (360/1.618);
+
+$background:  hsl($primary-hue, 38.2%, 9%);
+$highlight:   hsl($primary-hue, 9%, 14.6%);
+$purple:      hsl($primary-hue, 23.6%, 14.6%);
+$offset:      hsl($primary-hue, 23.6%, 76.4%);
+
+$aside:       hsl($secondary-hue, 2.6%, 38.2%);
+$body:        hsl($secondary-hue, 5.6%, 61.8%);
+$emphasis:    hsl($secondary-hue, 14.6%, 76.4%);
+
+$link:        hsl($secondary-hue, 38.2%, 61.8%);
+
+// Media queries
+$m320: "screen and (min-width: 320px)";
+
+
+//
+// Basic styles
+//
+
+body {
+  @include text-font;
+  font-size: em($font-size, 16);
+  line-height: lines(1);
+  background: $background;
+  color: $body;
+  -webkit-tap-highlight-color: $link;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom-color: $link;
+  }
+
+  &:active {
+    color: $aside;
+    border-color: $aside;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+strong {
+  @include ui-font;
+  color: $emphasis;
+}
+
+code {
+  @include code-font;
+}
+
+::selection      { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
+-moz-::selection { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
+
+
+//
+// Repeating elements
+//
+
+.button {
+  cursor: pointer;
+  color: $link;
+  display: inline-block;
+  background: $highlight;
+  padding: lines(0.5) lines(0.618);
+  vertical-align: top;
+}
+
+#loadingscreen {
+  background: rgba(#000, 0.618);
+}
+
+#loadingmessage {
+  color: $emphasis;
+  font-style: italic;
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  margin-top: lines(-0.5);
+}
+
+
+//
+// Structure
+//
+
+$width: 640;
+$height: 480;
+
+#gamecontainer {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: $width * 1px;
+  margin-left: $width / 2 * -1px;
+  height: $height * 1px;
+  margin-top: $height / 2 * -1px;
+}
+
+.gamelayer {
+  display: none;
+  position: absolute;
+  width: 100%; height: 100%;
+  text-align: center;
+}
+
+#gamecanvas {
+  background: #000;
+}

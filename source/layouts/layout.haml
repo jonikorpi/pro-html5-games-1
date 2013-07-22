@@ -1,0 +1,22 @@
+!!! 5
+- ie_html class: "no-js", lang: "en" do
+  %head
+    %meta{charset: "utf-8"}
+    %title
+      = data.page.title
+
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+
+    = stylesheet_link_tag "main"
+
+    -#
+      = favicon_tag ''
+      = favicon_tag '', rel: 'apple-touch-icon', type: 'image/png'
+      %meta{name: "msapplication-TileImage", content: ""}
+      %meta{name: "msapplication-TileColor", content: ""}
+      %meta{property: "og:image",            content: ""}
+
+  %body{class: "#{page_classes}"}
+    = yield
+
+    = javascript_include_tag "main"
